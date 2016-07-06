@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="toDoApp">
+<!-- The ng keyword is a DIRECTIVE.  It acts as the main way to bond
+    your JS modules and HTML.  It is also used below to bond the JS
+    module for the controller to the HTML -->
+  <meta charset="utf-8" />
+  <title>Title</title>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="controllers.js"></script>
+  </head>
+
+  <body>
+    <div ng-controller="ToDoController as controller">
+<!-- The "... as controller" syntax is used to INSTANTIATE the controller
+    to a variable that can then be accessed in the HTML -->
+<!-- The above is called MUSTACHE syntax (i.e. the {{}}), which is used to
+    interpolate the todo attribute from the toDoController into our HTML -->
+      <p ng-repeat="todo in controller.todos">
+        {{ todo.task }}: {{ todo.completed ? "completed" : "not completed "}}
+<!-- This prints each todo task name followed by ":" and then its status, which
+    is determined by the ternary operator -->
+      <button ng-click="controller.addToDo();">Add a ToDo</button>
+      </p>
+    </div>
+  </body>
+
+</html>
