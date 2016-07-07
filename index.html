@@ -21,7 +21,14 @@
         {{ todo.task }}: {{ todo.completed ? "completed" : "not completed "}}
 <!-- This prints each todo task name followed by ":" and then its status, which
     is determined by the ternary operator -->
+      <input type="text" ng-model="todoText" />
+<!-- The ng-model asks the application to put aside some scope for whatever we
+    enter, and we'll pass that named scope to our addToDo method in the
+    controller.  -->
       <button ng-click="controller.addToDo();">Add a ToDo</button>
+<!-- This button wires up the controller to the button. It 'listens for events
+    on 'click'. -->
+      <button ng-click="controller.removeToDo();">Remove last ToDo</button>
       </p>
     </div>
   </body>
